@@ -1,0 +1,46 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+    <!-- 1) Show an alert when the Button gets clicked -->
+    <div>
+        <button v-on:click="showAlert('hello Vue js')">Show Alert</button>
+    </div>
+    <!-- 2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value) -->
+    <div>
+        All Key down: <input type="text" v-on:keydown="changeInputValue">
+        <p>{{ value }}</p>
+    </div>
+    <!-- 3) Adjust the example from 2) to only fire if the "key down" is the ENTER key -->
+    <div>
+        enter Key down: <input type="text" v-on:keydown.enter="changeInputValue">
+        <p>{{ value }}</p>
+    </div>
+</div>
+<script src="app.js"></script>
+<script>
+    function Const1(){
+        console.log('몇번찍히냐');
+    }
+
+
+    function Const2(){
+        console.log('Const2', this);
+    }
+    var testObject = new Const2();
+    Const2.prototype = new Const1();
+//    Const2.prototype.constructor = Const2;
+    var obj2 = new Const2();
+    console.log(testObject.constructor.prototype === obj2.constructor.prototype); //true
+    console.log(testObject.constructor.prototype);
+    console.log(obj2.constructor.prototype);
+    console.log(testObject instanceof Const2);// false
+    console.log(obj2 instanceof Const2);// true
+    console.log(obj2 instanceof Const1);// ture
+//    console.log(Const2.prototype);
+//
+//    console.log(obj2 instanceof Const1);
+//    console.log(obj2 instanceof Function);
+//    console.log(Const2.prototype.constructor);
+
+
+</script>
